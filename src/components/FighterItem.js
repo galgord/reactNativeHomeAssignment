@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import CustomFastImage from "./CustomFastImage";
 
 const FighterItem = (props) => {
   const { fighter } = props;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity activeOpacity={0.7} style={styles.container} onPress={props.onPress}>
       <View style={styles.imageWrapper}>
       <CustomFastImage
       source={{uri: fighter.imageURL}}
@@ -22,7 +22,7 @@ const FighterItem = (props) => {
         <Text style={styles.otherText}>Rate: {fighter.rate}</Text>  
         <Text style={styles.otherText}>Downloads: {fighter.downloads}</Text>  
       </View>     
-    </View>
+    </TouchableOpacity>
   );
 }
 

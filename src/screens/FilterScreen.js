@@ -1,7 +1,9 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+
 
 const FilterScreen = (props) => {
+
   return (
     <View>
       <Text>filterScreen</Text>

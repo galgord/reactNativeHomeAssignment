@@ -1,12 +1,19 @@
 import React from "react";
 import {Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
-const IosHeader = (props) => {
-  console.log('props', props)
+import { useNavigation } from '@react-navigation/native';
+
+const IosHeader = ({text}) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.push('Filter');
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Fighters</Text>
-      <TouchableOpacity style={styles.iconStyle}>
+      <Text style={styles.headerText}>{text || 'Fighters'}</Text>
+      <TouchableOpacity style={styles.iconStyle} onPress={handlePress}>
         <MaterialIcons name="filter-list" size={24} color="black" />
       </TouchableOpacity>
     </View>
@@ -15,14 +22,13 @@ const IosHeader = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    height: '100%',
     flex: 1,
     borderBottomColor: '#C6C6C8',
     borderBottomWidth: 1,
     backgroundColor: '#fff',
     alignItems: 'flex-start',
     justifyContent: 'flex-end',
-    marginLeft: -20
   },
   headerText: {
   fontStyle: 'normal',
@@ -35,8 +41,8 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     position: 'absolute',
-    top: 20,
-    right: 30,
+    top: 10,
+    right: 30
   }
 });
 
